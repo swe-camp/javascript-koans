@@ -1,7 +1,7 @@
 describe("About Objects", function () {
 
   describe("Properties", function () {
-    var megalomaniac;
+    let megalomaniac;
 
     beforeEach(function () {
        megalomaniac = {  mastermind: "Joker", henchwoman: "Harley" };
@@ -19,7 +19,7 @@ describe("About Objects", function () {
 
 
   it("should know properties that are functions act like methods", function () {
-    var megalomaniac = {
+    const megalomaniac = {
       mastermind : "Brain",
       henchman: "Pinky",
       battleCry: function (noOfBrains) {
@@ -28,14 +28,14 @@ describe("About Objects", function () {
       }
     };
 
-    var battleCry = megalomaniac.battleCry(4);
+    const battleCry = megalomaniac.battleCry(4);
     expect(FILL_ME_IN).toMatch(battleCry);
   });
 
   it("should confirm that when a function is attached to an object, 'this' refers to the object", function () {
-    var currentDate = new Date();
-    var currentYear = (currentDate.getFullYear());
-    var megalomaniac = {
+    const currentDate = new Date();
+    const currentYear = (currentDate.getFullYear());
+    const megalomaniac = {
       mastermind: "James Wood",
       henchman: "Adam West",
       birthYear: 1970,
@@ -49,7 +49,7 @@ describe("About Objects", function () {
   });
 
   describe("'in' keyword", function () {
-    var megalomaniac;
+    const megalomaniac;
     beforeEach(function () {
       megalomaniac = {
         mastermind: "The Monarch",

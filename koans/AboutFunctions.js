@@ -10,14 +10,14 @@ describe("About Functions", function() {
   });
 
   it("should know internal variables override outer variables", function () {
-    var message = "Outer";
+    const message = "Outer";
 
     function getMessage() {
       return message;
     }
 
     function overrideMessage() {
-      var message = "Inner";
+      const message = "Inner";
       return message;
     }
 
@@ -27,14 +27,17 @@ describe("About Functions", function() {
   });
 
   it("should have lexical scoping", function () {
-    var variable = "top-level";
+    const variable = "top-level";
+    
     function parentfunction() {
-      var variable = "local";
+      const variable = "local";
+      
       function childfunction() {
         return variable;
       }
       return childfunction();
     }
+    
     expect(parentfunction()).toBe(FILL_ME_IN);
   });
 
@@ -42,7 +45,7 @@ describe("About Functions", function() {
 
     function makeMysteryFunction(makerValue)
     {
-      var newFunction = function doMysteriousThing(param)
+      const newFunction = function doMysteriousThing(param)
       {
         return makerValue + param;
       };
@@ -70,10 +73,12 @@ describe("About Functions", function() {
     expect(returnSecondArg("only give first arg")).toBe(FILL_ME_IN);
 
     function returnAllArgs() {
-      var argsArray = [];
-      for (var i = 0; i < arguments.length; i += 1) {
+      const argsArray = [];
+      
+      for (let i = 0; i < arguments.length; i += 1) {
         argsArray.push(arguments[i]);
       }
+      
       return argsArray.join(",");
     }
 
@@ -82,19 +87,45 @@ describe("About Functions", function() {
 
   it("should pass functions as values", function () {
 
-    var appendRules = function (name) {
+    const appendRules = function (name) {
       return name + " rules!";
     };
 
-    var appendDoubleRules = function (name) {
+    const appendDoubleRules = function (name) {
       return name + " totally rules!";
     };
 
-    var praiseSinger = { givePraise: appendRules };
+    const praiseSinger = { givePraise: appendRules };
     expect(praiseSinger.givePraise("John")).toBe(FILL_ME_IN);
 
     praiseSinger.givePraise = appendDoubleRules;
     expect(praiseSinger.givePraise("Mary")).toBe(FILL_ME_IN);
 
+  });
+
+  it("should pass primitive values", function () {
+    
+    function changeValue(value) {
+      value = "bar"
+    }
+    
+    const str = "foo"
+    
+    expect(str).toBe(FILL_ME_IN);
+    changeValue(x);
+    expect(str).toBe(FILL_ME_IN)
+  });
+  
+  it("should pass array references", function () {
+    
+    function changeMember(obj) {
+      obj.member = "bar";
+    }
+    
+    const x = { member: "foo" };
+    
+    expect(x.member).toBe(FILL_ME_IN);
+    changeMember(x);
+    expect(x.member).toBe(FILL_ME_IN)
   });
 });
