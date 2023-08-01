@@ -39,7 +39,11 @@ describe("About Applying What We Have Learnt", function() {
 
       var productsICanEat = [];
 
-      /* solve using filter() & all() / any() */
+      /* Solve using higher order functions */
+      // Easy: use forEach() or map() 
+      // Medium: use reduce()
+      // Hard: use filter() & all() / any() 
+      // Big brain: try all of the above
 
       expect(productsICanEat.length).toBe(FILL_ME_IN);
   });
