@@ -12,15 +12,15 @@ describe("About Higher Order Functions", function () {
   it("should use 'map' to transform each element", function () {
     const numbers = [1, 2, 3];
 
-    // We introduce arrow functions here. 
-    // Arrow functions are more concise and have some 
-    // technical advantages:
+    // We introduce arrow function syntax here. 
+    // Notice some syntactical benefits:
     // - Single line functions have an implicit return statement
     // - Parens are optional around functions with 1 argument
     // - Curly braces not needed for single-line functions
-    // Other technical benefits exist but are not in scope right now.
+
     // Read more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
     const numbersPlus1 = numbers.map(x => x + 1);
+    // const numbersPlus1 = numbers.map(function((x) { return x + 1 }); 
 
     expect(numbersPlus1).toEqual(FILL_ME_IN);
     expect(numbers).toEqual(FILL_ME_IN);
